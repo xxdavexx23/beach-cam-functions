@@ -23,13 +23,12 @@ import axios from "axios";
 export const getSource = onRequest(async (req, res) => {
   // Enable CORS by setting the Access-Control-Allow-Origin header
   res.set("Access-Control-Allow-Origin", "*");
-
   if (req.method !== "GET") {
     res.status(405).send("Method Not Allowed");
     return;
   }
+  const webpageUrl: any = req.query.url;
 
-  const webpageUrl = "https://v.angelcam.com/iframe?v=1ny8jxnjr0&autoplay=1";
 
   try {
     // Fetch the webpage content
